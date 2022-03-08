@@ -1,9 +1,22 @@
 import './App.css';
 import axios from "axios"
-import Cards from "./Cards"
+import Deck from "./Deck"
 import {useState, useEffect} from "react"
-
-
+/**App
+ * 
+ * Props: None
+ * 
+ * State: initial state = null
+ * 
+ * {
+ *  "success": true,
+ *  "deck_id": "3p40paa87x90",
+ *  "shuffled": true,
+ *  "remaining": 52
+ * }
+ * 
+ * App => Deck
+ */
 function App() {
   const [deck, setDeck] = useState(null);
 
@@ -15,13 +28,11 @@ function App() {
     fetchDeck();
   }, []);
 
-  if(!deck){
-    return <h1>Loading...</h1>
-  }
+  if(!deck) return <h1 className='loading'>Loading...</h1>
 
   return (
     <div className="App">
-      <Cards deck={deck}/>
+      <Deck deck={deck}/>
     </div>
   );
 }
