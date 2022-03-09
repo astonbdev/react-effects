@@ -22,6 +22,10 @@ function Deck({ deck }) {
   console.log('length', cards.length);
   const fullDeck = (cards.length === 52);
 
+
+  // "http://deckofcardsapi.com/api/deck/<<deck_id>>/shuffle/"
+
+
   if(cards.length === 52) {
     alert("Error: no cards remaining!");
   }
@@ -34,7 +38,7 @@ function Deck({ deck }) {
 
   return (
     <div className="Deck">
-      {!fullDeck && <button onClick={fetchCard}>Draw a Card</button>}
+      {!fullDeck && <button className="Deck-button" onClick={fetchCard}>Draw a Card</button>}
       {cards.map((c) => {
         return <Card card={c} key={c.code}/>
       })}

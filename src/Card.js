@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 /**Card
  * 
@@ -12,9 +13,17 @@
  * Deck => Card
  */
 function Card({ card }) {
+  const[rotation, setRotation] = useState(randomNumber());
+
+  function randomNumber() { 
+    return Math.random() * (45 - (-45)) + (-45);
+  } 
+
+  const cardStyle = {transform: `rotate(${rotation}deg)`};
+
   return (
     <div className="cards">
-      <img src={card.image} alt={`${card.suit} ${card.value}`} />
+      <img src={card.image} alt={`${card.suit} ${card.value}`} style={cardStyle}/>
     </div>
   )
 }
